@@ -1,0 +1,207 @@
+:root {
+  /* === 治愈柔和色系 === */
+  --bg-primary: #FFF9F0;
+  --bg-secondary: #FFF5E8;
+  --bg-card: #FFFFFF;
+  --bg-hover: #FFF0D6;
+  --bg-input: #FFFCF5;
+
+  --text-primary: #5D4E37;
+  --text-secondary: #9E8E78;
+  --text-muted: #C4B8A6;
+  --divider: #F0E6D8;
+
+  --border-color: #F0E6D8;
+  --border-light: #F7EFE3;
+
+  /* 阴影 - 柔和 */
+  --shadow-soft: 0 2px 12px rgba(139, 109, 70, 0.06);
+  --shadow-card: 0 4px 20px rgba(139, 109, 70, 0.08);
+  --shadow-elevated: 0 8px 40px rgba(139, 109, 70, 0.12);
+  --shadow-inner: inset 0 1px 4px rgba(139, 109, 70, 0.06);
+
+  /* 圆角 - 柔和圆润 */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+
+  /* === 类别色彩 - 柔和治愈 === */
+  --color-study: #E8F5E9;
+  --color-study-text: #4CAF50;
+  --color-study-dark: #2E7D32;
+
+  --color-work: #E3F2FD;
+  --color-work-text: #64B5F6;
+  --color-work-dark: #1565C0;
+
+  --color-meeting: #F3E5F5;
+  --color-meeting-text: #BA68C8;
+  --color-meeting-dark: #7B1FA2;
+
+  --color-life: #FFF8E1;
+  --color-life-text: #FFB74D;
+  --color-life-dark: #E65100;
+
+  --color-shopping: #FCE4EC;
+  --color-shopping-text: #F48FB1;
+  --color-shopping-dark: #C2185B;
+
+  --color-longterm: #E0F7FA;
+  --color-longterm-text: #4DD0E1;
+  --color-longterm-dark: #00838F;
+
+  --color-other: #EFEBE9;
+  --color-other-text: #A1887F;
+  --color-other-dark: #5D4037;
+
+  /* === 优先级色彩 === */
+  --priority-high: #FFCDD2;
+  --priority-high-bg: #FFF0F0;
+  --priority-high-text: #E57373;
+  --priority-medium: #FFF9C4;
+  --priority-medium-bg: #FFFCF0;
+  --priority-medium-text: #C9A94E;
+  --priority-low: #C8E6C9;
+  --priority-low-bg: #F0FFF0;
+  --priority-low-text: #81C784;
+
+  /* === 主色调 - 温暖绿 === */
+  --accent: #7DB88A;
+  --accent-hover: #6AA878;
+  --accent-green: #8BC99A;
+  --accent-green-hover: #7AB988;
+  --accent-blue: #89C4E1;
+  --accent-pink: #F2A7B3;
+  --accent-yellow: #F5D98A;
+  --accent-orange: #F0B87A;
+  --accent-cream: #F5E6C8;
+
+  /* === 功能色 === */
+  --success: #8BC99A;
+  --warning: #F5D98A;
+  --error: #F2A7B3;
+  --info: #89C4E1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 柔和滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 109, 70, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 109, 70, 0.2);
+}
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input, textarea, select {
+  outline: none;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 14px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(125, 184, 138, 0.15);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* 页面切换动画 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.slide-enter-from {
+  transform: translateY(16px);
+  opacity: 0;
+}
+.slide-leave-to {
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+/* 通用动画 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes softPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+/* 选中文字样式 */
+::selection {
+  background: rgba(125, 184, 138, 0.2);
+  color: var(--text-primary);
+}
